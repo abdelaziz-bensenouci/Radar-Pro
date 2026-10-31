@@ -1,0 +1,39 @@
+
+[package]
+name = "radar-pro"
+version = "0.1.0"
+description = "RADAR PRO - logiciel local de veille des marchés publics"
+authors = ["RADAR PRO"]
+edition = "2021"
+
+[lib]
+name = "radar_pro_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["unstable"] }
+tauri-plugin-opener = "2"
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+quick-xml = "0.38"
+scraper = "0.22"
+
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+
+# Lecture des PDF et documents
+pdf-extract = "0.7"
+docx-rs = "0.4"
+
+# Décompression des fichiers ZIP
+zip = "4"
+
+# Génération des fichiers
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4"] }
+
+# Sécurité et gestion des fichiers
+sanitize-filename = "0.6"

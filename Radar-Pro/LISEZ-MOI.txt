@@ -1,0 +1,58 @@
+RADAR PRO - VERSION DESKTOP 0.1.0
+================================
+
+IMPORTANT
+---------
+Cette version remplace le premier prototype Next.js/Supabase.
+RADAR PRO est désormais conçu comme une application Windows installée localement.
+Les données de profil et les marchés enregistrés sont stockés dans une base SQLite locale.
+La collecte Internet des marchés publics n'est PAS encore intégrée dans cette version.
+
+PRÉREQUIS WINDOWS
+-----------------
+1. Installer Node.js LTS : https://nodejs.org/
+2. Installer Rust avec rustup : https://www.rust-lang.org/tools/install
+3. Installer Microsoft C++ Build Tools (charge de travail « Développement Desktop en C++ ») :
+   https://visualstudio.microsoft.com/visual-cpp-build-tools/
+4. Installer WebView2 Runtime si Windows ne l'a pas déjà :
+   https://developer.microsoft.com/microsoft-edge/webview2/
+
+INSTALLATION
+------------
+1. Décompresser le dossier Radar-Pro-Desktop.
+2. Ouvrir ce dossier dans Visual Studio Code.
+3. Ouvrir Terminal > Nouveau terminal.
+4. Exécuter : npm install
+5. Pour lancer l'application Windows en développement : npm run tauri dev
+
+POUR PRODUIRE L'INSTALLATEUR WINDOWS
+------------------------------------
+Exécuter : npm run tauri build
+L'installateur sera généré dans src-tauri/target/release/bundle/.
+
+APERÇU WEB (SANS BASE SQLITE)
+-----------------------------
+La commande npm run dev permet d'afficher l'interface dans un navigateur, mais les fonctions
+SQLite nécessitent l'application Tauri. Pour tester l'application complète, utiliser
+npm run tauri dev.
+
+CE QUI EST DÉJÀ PRÉSENT
+----------------------
+- Interface de bureau RADAR PRO en français.
+- Navigation : tableau de bord, entreprise, appels d'offres, réponses, paramètres.
+- Profil entreprise enregistré dans SQLite sur l'ordinateur.
+- Première structure locale pour enregistrer des marchés.
+
+CE QUI RESTE À DÉVELOPPER
+-------------------------
+- Service central de collecte et de normalisation des avis.
+- Synchronisation sécurisée des annonces vers les logiciels clients.
+- Connecteurs BOAMP, PLACE, TED et sources locales, selon leurs API/conditions de réutilisation.
+- Analyse des DCE, extraction des contacts et assistant de préparation des réponses.
+- Gestion sécurisée des mises à jour et de la licence commerciale.
+
+NOTE DE SÉCURITÉ
+----------------
+Ne distribuez pas cette version à des clients en production. Elle est un socle de développement.
+Avant commercialisation, il faudra ajouter notamment sauvegardes, chiffrement des données sensibles,
+contrôle d'accès local, politique de mises à jour, tests et mécanisme de licence.
